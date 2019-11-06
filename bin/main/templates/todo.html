@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>TODO App</title>
+    <link rel="stylesheet" type="text/css" href="./todo.css">
+  </head>
+<body>
+  <div class="container">
+  <table>
+    <thead>
+    	<tr>
+    		<th class="id">ID</th>
+    		<th class="comment">コメント</th>
+    		<th class="state">状態</th>
+    		<th class="button">-</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<tr th:each = "todo:${todoList}">
+    		<th>[[${todo.id}]]</th>
+    		<td>[[${todo.comment}]]</td>
+    		<td class="state"><button>[[${todo.status}]]</button></td>
+    		<td class="button"><button>削除</button></td>
+    	</tr>
+    </tbody>
+  </table>
+  <form name="add-form" action="/todo" method="post">
+      コメント <input type="text" name="comment"><button type="submit">追加</button>
+  </form>
+  </div>
+</body>
+</html>
